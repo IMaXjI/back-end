@@ -1,0 +1,24 @@
+default:
+  image: python:3.10-slim
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: always
+    - when: never
+
+include:
+  - project: 'skillbox-michlew/linter-template'
+    file: 'linter.yml'
+
+stages:
+  - linter
+  - tests
+
+linter:
+  extends: .lint-ruff
+
+test_run:
+  stage: tests
+  script: pytest tests/
+
