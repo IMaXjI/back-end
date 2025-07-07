@@ -20,7 +20,11 @@ jobs:
         uses: actions/checkout@v4
       - name: Display content
         run: ls -l
+      - name: Create venv
+        run: pip install virtualenv && virtualenv venv
+      - name: Activate venv
+        run: source /venv/bin/activate
       - name: Install requirements
-        run: pip install -r $GITHUB_WORKSPACE/requirements.txt
+        run: pip install -r requirements.txt
       - name: Execute tests
-        run: pytest $GITHUB_WORKSPACE/test
+        run: pytest /test
