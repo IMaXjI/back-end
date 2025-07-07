@@ -13,7 +13,7 @@ jobs:
   test_run:
     name: Test run
     runs-on: ubuntu-22.04
-    container: python:3.7-slim
+    container: python:3.9-slim
 #    needs: linter
     steps:
       - name: Checkout project
