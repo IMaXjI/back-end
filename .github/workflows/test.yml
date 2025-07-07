@@ -19,7 +19,7 @@ jobs:
       - name: Checkout project
         uses: actions/checkout@v4
       - name: Display content
-        run: ls -l
+        run: pwd && ls -l
       - name: Create venv
         run: pip install virtualenv && virtualenv venv
       - name: Activate venv
