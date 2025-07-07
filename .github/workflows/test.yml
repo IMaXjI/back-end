@@ -18,5 +18,9 @@ jobs:
     steps:
       - name: Checkout project
         uses: actions/checkout@v4
+      - name: Display content
+        run: ls -l
+      - name: Install requirements
+        run: pip install -r $GITHUB_WORKSPACE/requirements.txt
       - name: Execute tests
         run: pytest $GITHUB_WORKSPACE/test
