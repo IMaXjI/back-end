@@ -23,7 +23,7 @@ jobs:
       - name: Create venv
         run: pip install virtualenv && virtualenv venv
       - name: Activate venv
-        run: source /venv/bin/activate
+        run: . venv/bin/activate
       - name: Install requirements
         run: pip install -r requirements.txt
       - name: Execute tests
