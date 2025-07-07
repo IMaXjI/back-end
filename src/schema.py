@@ -4,6 +4,7 @@ from pydantic import BaseModel, Field
 
 class RecipeBase(BaseModel):
     """Recipe base structure"""
+
     title: str = Field(
         ...,
         min_length=5,
@@ -20,10 +21,12 @@ class RecipeBase(BaseModel):
 
 
 class RecipeIn(RecipeBase):
-    ...
+    """Recipe input"""
 
 
 class RecipeOut(RecipeBase):
+    """Recipe output"""
+
     id: int
     views: int
 

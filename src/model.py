@@ -7,6 +7,7 @@ Base = Database.get_declarative_base()
 
 class Recipe(Base):
     """Recipes aggregation table"""
+
     __tablename__ = "recipe"
 
     id = Column(Integer, primary_key=True, index=True)
