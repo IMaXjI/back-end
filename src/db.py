@@ -11,6 +11,7 @@ if os.path.exists(DB_PATH):
 
 class Database:
     """Database management interface"""
+
     _engine = None
     _session = None
     _base = None

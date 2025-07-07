@@ -2,9 +2,18 @@ name: App test run
 on: pull_request
 jobs:
   linter:
+    uses: IMaXjI/linter-template/.github/workflows/linter.yml@main
+  test_run:
+    name: Test run
     runs-on: ubuntu-22.04
-    container: python:3.10-slim
-#    uses: https://github.com/IMaXjI/linter-template/blob/main/.github/workflows/linter.yml
+    container: python:3.9-slim
+    needs: linter
     steps:
-      - name: Test step
-        run: ls -l
+      - name: Checkout project
+        uses: actions/checkout@v4
+      - name: Display content
+        run: pwd && ls -l
+      - name: Install requirements
+        run: pip install -r requirements.txt
+      - name: Execute tests
+        run: pytest tests/

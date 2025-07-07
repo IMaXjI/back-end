@@ -11,7 +11,7 @@ session = Database.get_session()
 
 
 @router.post("/recipes", response_model=schema.RecipeOut)
-async def recipes(recipe: schema.RecipeIn) -> model.Recipe:
+async def post_recipes(recipe: schema.RecipeIn) -> model.Recipe:
     new_recipe = model.Recipe(**recipe.dict())
     async with session.begin():
         session.add(new_recipe)
@@ -20,7 +20,7 @@ async def recipes(recipe: schema.RecipeIn) -> model.Recipe:
 
 @router.get("/recipes", response_model=List[schema.RecipeOut])
 @router.get("/recipes/{idx}", response_model=schema.RecipeOut)
-async def recipes(idx: Optional[int] = None) -> Union[List[model.Recipe], model.Recipe]:
+async def get_recipes(idx: Optional[int] = None) -> Union[List[model.Recipe], model.Recipe]:
     async with session.begin():
         if idx:
             await session.execute(
