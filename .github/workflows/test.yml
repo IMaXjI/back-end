@@ -17,6 +17,6 @@ jobs:
 #    needs: linter
     steps:
       - name: Checkout project
-        run: actions/checkout@v4
+        uses: actions/checkout@v4
       - name: Execute tests
         run: pytest $GITHUB_WORKSPACE/test
