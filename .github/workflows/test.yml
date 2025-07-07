@@ -1,0 +1,10 @@
+name: App test run
+on: pull_request
+jobs:
+  linter:
+    runs-on: ubuntu-22.04
+    container: python:3.10-slim
+#    uses: https://github.com/IMaXjI/linter-template/blob/main/.github/workflows/linter.yml
+    steps:
+      - name: Test step
+        run: ls -l
